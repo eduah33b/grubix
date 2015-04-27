@@ -1,0 +1,76 @@
+.kfran {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  max-width: 870px !important;
+}
+.kfran .kpt {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  border: 1px solid #000;
+  z-index: 9;
+  background: white;
+
+  -webkit-transition: all 1.7s;
+  -moz-transition: all 1.7s;
+  transition: all 1.7s;
+}
+.kfran .ln {
+  position: absolute;
+  border: 1px solid #000;
+  z-index: 0; 
+
+  -webkit-transition: all 1.5s;
+  -moz-transition: all 1.3s;
+  transition: all 1.7s;
+}
+.h {
+  height: 2%;
+  right: 20%;
+  left: 20%;
+}
+.ht {
+  top: 19%; 
+}
+.hc {
+  top: 49%;
+}
+.hb {
+  top: 79%;
+}
+.v{
+  width: 1%;
+  top: 20%;
+  bottom: 20%;
+}
+.vr {
+  right: 19.5%;
+}
+.vm {
+  right: 49.5%; 
+}
+.vl {
+  right: 79.5%;
+}
+.t {
+  top:15%;  
+}
+.c {
+  top: 45%;
+}
+.b {
+  top: 75%;
+}
+
+.r {
+  right: 15%;
+}
+.l {
+  right: 75%;
+}
+.m {
+  right: 45%;
+}
