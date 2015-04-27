@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eduah Browser Gaming Rubix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="product" content="Eduah Web-Broswer Gaming Rubix">
+    <meta name="description" content="EduahApps Development Test Site">
+    <meta name="author" content="Emmanueal Kwaku Duah">
+    
+    <link rel="stylesheet" type="text/css" href="css/af.ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icons.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/index.css">    
+
+    <script type="application/javascript" src="js/appframework.js"></script>
+    <script src="https://eduah-sock-server.herokuapp.com/socket.io/socket.io.js"></script>
+    <script type="application/javascript" src="js/appframework.ui.js"></script>
+    <script type="application/javascript" src="js/stroll.min.js"></script>
+    
+    <script type="application/javascript" src="js/index.js"></script>
+
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }        
+    </style>
+    
+    <script>   
+        $.ui.autoLaunch = true; 
+        $.ui.showBackButton = false;
+        $.ui.animateHeaders = false;
+		$.ui.splitview = false;
+        if(!$.os.ios &&! $.os.android){
+            $.os.desktop = true;
+        }
+    </script>   
+</head>
+<body> 
+<div id="afui">
+    <!--right side menu Navigation bar -->
+    <aside>        
+        <ul class="list chatm">
+        	<li id="li_scroll_id"></li>
+        </ul>
+        <input type="text" placeholder="Say something" class="chatin" onkeyup="send_chat_m(event, this)" />
+    </aside>  
+
+    <!--left side menu Navigation bar -->
+    <nav>
+        <ul class="list">
+        	<li class="divider">Game menu</li>
+            <li class="material-button color2 hover icon refresh fg-green" onclick="resetGame()">Reset match</li>
+            <li class="material-button color3 hover icon remove fg-yellow" onclick="srests(); resetEnv();">Reset game board</li>
+            <li class="material-button color1 hover fg-red icon error" onclick="srests(); resetEnv(); re_l(); ">Choose Different Game</li>
+        </ul>
+    </nav>
+
+    <div id="content" style="">
+        <!-- Welcome View -->
+        <div class="panel" title="Welcome" id="home" data-header="none" data-footer="none" selected="true">
+            <div style="text-align:center">
+                <br>    
+                <br>
+                <h1>Eduah Game Rubix</h1>
+                <br>
+                <br>
+                <p>Please Select A Game of Choice</p>
+                <br>
+            </div>    
+
+            <ul class="list fly">
+                <li onclick="game_s(0)" class="material-button color1 hover" id="kfran">
+                    <img class="list-image" src="g_modules/1/index.png" />
+                    <div class="list-text"><h4>2 Person Qwesiada Frankaa<span class="oncn"></span></h4><p>2D variation of the popular Tic-Tac-Toe game indeginues to Ghana/West Afica</p></div>
+                </li>
+                <li onclick="game_s(1)" class="material-button color1 hover" id="gofish2">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>2 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version doesn't not force fishing meaning a player without a particular card type or after fishing the deck empty get skiped</p></div>
+                </li>
+                <li onclick="game_s(6)" class="material-button color1 hover" id="gofish2f">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>2 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version does force fishing meaning a player without a particular card type or after fishing the deck empty will end the game play</p></div>
+                </li>
+                <li onclick="game_s(2)" class="material-button color1 hover" id="gofish3">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>3 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version doesn't not force fishing meaning a player without a particular card type or after fishing the deck empty get skiped</p></div>
+                </li>
+                <li onclick="game_s(7)" class="material-button color1 hover" id="gofish3f">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>3 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version does force fishing meaning a player without a particular card type or after fishing the deck empty will end the game play</p></div>
+                </li>
+                <li onclick="game_s(3)" class="material-button color1 hover" id="gofish4">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>4 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version doesn't not force fishing meaning a player without a particular card type or after fishing the deck empty get skiped</p></div>
+                </li>
+                <li onclick="game_s(8)" class="material-button color1 hover" id="gofish4f">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>4 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version does force fishing meaning a player without a particular card type or after fishing the deck empty will end the game play</p></div>
+                </li>
+                <li onclick="game_s(4)" class="material-button color1 hover" id="gofish5">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>5 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version doesn't not force fishing meaning a player without a particular card type or after fishing the deck empty get skiped</p></div>
+                </li>
+                 <li onclick="game_s(9)" class="material-button color1 hover" id="gofish5f">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>5 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version does force fishing meaning a player without a particular card type or after fishing the deck empty will end the game play</p></div>
+                </li>
+                <li onclick="game_s(5)" class="material-button color1 hover" id="gofish6">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>6 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version doesn't not force fishing meaning a player without a particular card type or after fishing the deck empty get skiped</p></div>
+                </li>
+                <li onclick="game_s(10)" class="material-button color1 hover" id="gofish6f">
+                    <img class="list-image" src="g_modules/2/index.png" />
+                    <div class="list-text"><h4>6 Person Go Fish Cards<span class="oncn"></span></h4><p>This is a local variation of the go fish card games. This version does force fishing meaning a player without a particular card type or after fishing the deck empty will end the game play</p></div>
+                </li>
+            </ul>
+        </div> 
+
+        <!-- Enter User NAME -->
+        <div class="panel" title="Enter Name" id="page1" data-header="none" data-footer="none" style="text-align:center">
+            <div style="text-align:center">
+	            <br>
+	            <br>
+	            <h1>Welcome</h1>
+	            <br>
+	            <br>
+	            <p>Eduah Kwesiada Frankaa Rubix</p>
+	            <br>
+	            <br>
+            </div>    
+            <ul class="list inset">
+                <li><input name="clid" type="text" placeholder="Please enter Gamer Tag / Username / Phone Number"/></li>
+                <li class="material-button color2 hover fg-green"><a onclick="init_b()" class="icon user" title="Please enter Gamer Tag / Username / Phone Number">Choose Playmate</a></li>
+                <li class="material-button color1 hover fg-red icon error" onclick="re_l();">Choose Different Game</li>
+            </ul>
+        </div>       
+
+        <div class="panel" title="Hurray" id="fun" data-header="none" style="overflow: hidden;">
+            <div class="pyro"></div>
+            <div style="text-align:center; position: relative; top: 50%; transform: translateY(-60%); z-index: 1;">
+                <h1 class="win_h fg-yellow">Hurray!! You won!!!</h1>
+                <br>
+                <br>
+                <h1 class="win_t">Do You Want to play another game?</h1>
+            </div>
+            <footer>
+                <a onclick="resetGame();" class="material-button color2 hover button icon check fg-green" style="float:left; width: 47%;">Yes</a>
+                <a onclick="srests();resetEnv();" class="material-button color1 hover button icon error fg-red" style="float:right; width: 47%;">No</a>
+            </footer>
+        </div>
+
+        <div class="panel" title="Hi" id="page2" data-footer="none" data-header="none"  style="text-align:center">
+        	<ul class="list">
+            	<li class="material-button color1 hover fg-red icon error" onclick="re_l();">Choose Different Game</li>
+            </ul>
+            <br>
+            <br>
+            <p class="status_pl" title="Invite a friend online to play with him/her">:( Oops, no players avialable online for a game.</p>
+            <br>
+            <br>
+            <ul class="list inset playlist"></ul>
+        </div> 
+
+        <div class="panel" title="Game Board" id="gameb" data-footer="none">
+        <header>
+        	<a onclick='$.ui.toggleLeftSideMenu()' class='button icon home' style="float:left"></a>
+            <a onclick='$.ui.toggleRightSideMenu(); $.ui.removeBadge("#gameb");set_s_w_h();' class='button icon chat' style="float:right"></a>
+            <h1 id="header_text">Hi</h1>
+        </header>                    
+            <div class="gbd"></div>        
+        </div>
+    </div>
+</div>
+</body>
+</html>
