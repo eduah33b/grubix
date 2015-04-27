@@ -23,7 +23,7 @@ $(document).ready(function(){
 	var sy = ['♠', '♣', '♦', '♥'];
 	var sycl = ['spades', 'clubs', 'diams', 'hearts'];
 	var rtimer = '';
- 
+	
 /* game build and initalisation */
 	function game_init(){
 		buildDeck();
