@@ -128,7 +128,7 @@ $(document).ready(function(){
 				l = (25 - (290 * (Math.trunc(n / 39) * 2))) + (Math.trunc(n / 39) * 10);
 			h = 60 + (415 * Math.trunc(n / 39));
 		}
-		return {l , t , h};
+		return {'l': l,'t': t,'h': h};
 	}
 
 	$(window).resize(function(){
